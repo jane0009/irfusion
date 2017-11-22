@@ -1,0 +1,27 @@
+{
+  "name": "irfusion",
+  "version": "0.1.0",
+  "description": "testing IRC client",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^1.7.9",
+    "irc": "^0.5.2",
+    "jquery": "^3.2.1",
+    "linkifyjs": "^2.1.5",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
+  },
+  "devDependencies": {
+    "electron-devtools-installer": "^2.2.1",
+    "electron-notify": "^0.1.0",
+    "electron-packager": "^9.1.0",
+    "electron-winstaller": "^2.6.3",
+    "html-react-parser": "^0.4.0"
+  },
+  "scripts": {
+    "start": "set NODE_ENV=dev& electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jane Petrovna",
+  "license": "UNLICENSED"
+}

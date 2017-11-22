@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    window.$ = window.jQuery = require('jquery')
+  </script>
+  <link rel='stylesheet' type='text/css' href='index.css'></link>
+</head>
+
+<body>
+  <div class='overlay-wrapper'>
+    <div class='overlay'>
+      <div class='content'> Loading... </div>
+    </div>
+  </div>
+  <div class='settings-wrapper'>
+    <form class='username'>
+      Set Nickname:
+    </form>
+    <form class='channel-add'>
+      Add Channel:
+    </form>
+
+  </div>
+  <h1>IrfusIon</h1>
+  <div class='channels-list'>
+    <div class='channels scroller'>
+      <!-- TODO populate channels list via JS -->
+    </div>
+  </div>
+  <div class='users-wrapper'>
+    <div class='users scroller'>
+      <!-- TODO populate users list -->
+    </div>
+  </div>
+  <div class='messages-wrapper'>
+    <div class='messages scroller'>
+      <!-- TODO populate channels list via JS -->
+    </div>
+  </div>
+  <div class='message-input-wrapper'>
+    <form class='message-form'>
+  </div>
+  </form>
+  <script>
+    require('./renderer.js')
+  </script>
+</body>
+
+</html>

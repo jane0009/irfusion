@@ -1,0 +1,9 @@
+{
+    "test": true,
+    "username": "janeptrv",
+    "servers": {
+        "irc.esper.net": "6667",
+        "chat.freenode.net": "6667"
+    },
+    "defaultChannels": ["#janeptrv"]
+}
