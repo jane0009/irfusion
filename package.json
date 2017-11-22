@@ -9,14 +9,14 @@
     "jquery": "^3.2.1",
     "linkifyjs": "^2.1.5",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "electron-notify": "^0.1.0",
+    "html-react-parser": "^0.4.0"
   },
   "devDependencies": {
     "electron-devtools-installer": "^2.2.1",
-    "electron-notify": "^0.1.0",
     "electron-packager": "^9.1.0",
-    "electron-winstaller": "^2.6.3",
-    "html-react-parser": "^0.4.0"
+    "electron-winstaller": "^2.6.3"
   },
   "scripts": {
     "start": "set NODE_ENV=dev& electron .",
