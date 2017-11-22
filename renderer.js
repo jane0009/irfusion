@@ -155,7 +155,7 @@ function removePreviousUsers() {
 
 function populateNicknames(nicks, server) {
     //console.log(nicks, server)
-    if (!nicks) return;
+    if (nicks == undefined) return;
     if (!server) {
         removePreviousUsers()
         for (i in nicks) {
@@ -470,17 +470,41 @@ for (ekey in clientObject) {
     tempClient.on('join', (channel, nick) => {
         //console.log(this)
         pushMessage('System', channel, `${nick} has joined ${channel} [${tempClient.opt.server}]`)
+        if(currentChannel == channel) {
+            for (key in clientObject) {
+                            //console.log(this.props.channelName != 'motd', key, channelObject[this.props.channelName][key].nicks)
+                            populateNicknames(channel != 'motd' && channelObject[channel][key] ? channelObject[channel][key].nicks : undefined, key);
+                        }
+        }
     })
     tempClient.on('part', (channel, nick, reason) => {
         pushMessage('System', channel, `${nick} has left ${channel} - "${reason}" [${tempClient.opt.server}]`)
+        if(currentChannel == channel) {
+            for (key in clientObject) {
+                            //console.log(this.props.channelName != 'motd', key, channelObject[this.props.channelName][key].nicks)
+                            populateNicknames(channel != 'motd' && channelObject[channel][key] ? channelObject[channel][key].nicks : undefined, key);
+                        }
+        }
     })
     tempClient.on('quit', (nick, reason, channels) => {
         for (i in channels) {
             pushMessage('System', channels[i], `${nick} has left ${channels[i]} - "${reason}" [${tempClient.opt.server}]`)
+            if(currentChannel == channels[i]) {
+            for (key in clientObject) {
+                            //console.log(this.props.channelName != 'motd', key, channelObject[this.props.channelName][key].nicks)
+                            populateNicknames(channels[i] != 'motd' && channelObject[channels[i]][key] ? channelObject[channels[i]][key].nicks : undefined, key);
+                        }
+        }
         }
     })
     tempClient.on('kick', (channel, nick, by, reason) => {
         pushMessage('System', channel, `${nick} has been kicked from ${channel} by ${by} for reason "${reason}" [${tempClient.opt.server}]`)
+        if(currentChannel == channel) {
+            for (key in clientObject) {
+                            //console.log(this.props.channelName != 'motd', key, channelObject[this.props.channelName][key].nicks)
+                            populateNicknames(channel != 'motd' && channelObject[channel][key] ? channelObject[channel][key].nicks : undefined, key);
+                        }
+        }
     })
     tempClient.on('motd', (motd) => {
         pushMessage('System', 'motd', motd);
@@ -501,7 +525,7 @@ for (ekey in clientObject) {
             pushMessage('System', channels[chani], `User ${oldnick} has changed their nickname to ${newnick} [${tempClient.opt.server}]`)
             //console.log(chani + channels[chani])
             if (channels[chani] == currentChannel) {
-                populateNicknames(channelObject[channels[chani]][tempClient.opt.server].nicks)
+                populateNicknames(channelObject[channels[chani]][tempClient.opt.server].nicks, tempClient.opt.server)
             }
         }
     })
